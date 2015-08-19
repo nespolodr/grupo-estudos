@@ -1,4 +1,4 @@
-package br.com.fiorilli.estudos;
+package br.com.fiorilli.estudos.agenda;
 
 import java.util.List;
 

@@ -1,9 +1,8 @@
-package br.com.fiorilli.estudos;
+package br.com.fiorilli.estudos.cadeira;
 
 public class Cadeira {
 
 	public Cadeira(String cor, String tipo) {
-		super();
 		this.cor = cor;
 		this.tipo = tipo;
 	}
@@ -12,6 +11,10 @@ public class Cadeira {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void quemSouEu(){
+		System.out.println("Eu sou uma cadeira");
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

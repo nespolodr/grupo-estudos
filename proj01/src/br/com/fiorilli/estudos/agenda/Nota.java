@@ -1,10 +1,12 @@
-package br.com.fiorilli.estudos;
+package br.com.fiorilli.estudos.agenda;
 
 import java.util.Date;
 
 public class Nota {
 
-	private long id;
+	private static int geradorId = 0;
+
+	public long id;
 
 	private String titulo;
 	private String descricao;
@@ -42,4 +44,14 @@ public class Nota {
 		this.data = data;
 	}
 
+	public static int gerarProximoId(){
+		return ++geradorId;
+	}
+
+	@Override
+	public String toString() {
+		return "Nota [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", data=" + data + "]";
+	}
+	
+	
 }
