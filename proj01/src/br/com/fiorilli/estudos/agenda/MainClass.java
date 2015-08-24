@@ -41,10 +41,10 @@ public class MainClass {
 				notas.add(inserir);
 				break;
 			case 3:
-				alterar(scan);
+				alterar(scan, agenda);
 				break;
 			case 4:
-				remover();
+				remover(scan, agenda);
 				break;
 			case 0:
 				System.exit(0);
@@ -60,14 +60,51 @@ public class MainClass {
 		scan.close();
 	}
 
-	private static void alterar(Scanner scan) {
+	private static void alterar(Scanner scan, Agenda agenda) {
 		System.out.println("Vou alterar nota na agenda");
+		
+		listar(agenda);
+		
+		Nota notaParaAlterar = null;
+
+		System.out.print("Digite qual nota você quer alterar:");
+		int idParaAlterar = scan.nextInt();
+		
+		for(int i = 0; i < agenda.getNotas().size() ; i++)
+		{
+			Nota notaAtual = agenda.getNotas().get(i);
+			if(notaAtual.getId() == idParaAlterar)
+			{
+				notaParaAlterar = notaAtual;
+				break;
+			}
+		}
+		
+		
+		System.out.print("Digite o novo titulo da nota:");
+		notaParaAlterar.setTitulo(scan.next());
+
+		System.out.print("Digite a nova descrição da nota:");
+		notaParaAlterar.setDescricao(scan.next());
 
 	}
 
-	private static void remover() {
+	private static void remover(Scanner scan, Agenda agenda) {
 		System.out.println("Vou remover nota na agenda");
 
+		listar(agenda);
+
+		System.out.print("Digite qual nota você quer remover:");
+		int idParaRemover = scan.nextInt();
+		
+		for(Nota nota : agenda.getNotas())
+		{
+			if(nota.getId() == idParaRemover)
+			{
+				agenda.getNotas().remove(nota);
+				break;
+			}
+		}
 	}
 
 	private static Nota inserir(Scanner scan) {
@@ -90,7 +127,7 @@ public class MainClass {
 	private static void listar(Agenda agenda) {
 		System.out.println("Vou listar as notas da agenda");
 
-		agenda.getNotas().forEach(s -> System.out.print(s));
+		agenda.getNotas().forEach(s -> System.out.println(s));
 	}
 
 }

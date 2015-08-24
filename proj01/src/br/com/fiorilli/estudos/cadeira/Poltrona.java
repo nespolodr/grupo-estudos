@@ -2,6 +2,7 @@ package br.com.fiorilli.estudos.cadeira;
 
 public class Poltrona extends Cadeira {
 
+	
 	private Boolean reclinavel;
 	private Boolean esquenta;
 
@@ -18,6 +19,10 @@ public class Poltrona extends Cadeira {
 	}
 
 	public Poltrona() {
+	}
+	
+	public void reclinar(){
+		System.out.println("Poltrona reclinando !!!");
 	}
 
 	@Override
