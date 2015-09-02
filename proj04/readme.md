@@ -1,5 +1,6 @@
 #Projeto Web
 
+Estudo de java web. JSF + JPA + MySQL
 
 
 ##JAVA EE JPA setup
