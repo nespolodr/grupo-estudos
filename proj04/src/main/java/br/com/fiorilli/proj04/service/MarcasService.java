@@ -21,5 +21,17 @@ public class MarcasService {
 		return resultado;
 		
 	}
+
+	public void salvarMarca(MarcaEntity marca) {
+		
+		if(marca != null)
+		{
+			if(marca.getAtivo() == true)
+			{
+				marcaDao.insert(marca);
+			}
+		}
+		
+	}
 	
 }
