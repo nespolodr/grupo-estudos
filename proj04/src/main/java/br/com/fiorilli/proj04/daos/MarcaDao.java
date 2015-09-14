@@ -38,4 +38,26 @@ public class MarcaDao {
 
 	}
 
+	public void alterar(MarcaEntity marca) {
+		
+		
+
+
+		EntityTransaction transaction = manager.getTransaction();
+		try {
+
+			transaction.begin();
+
+			manager.merge(marca);
+
+			transaction.commit();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (transaction.isActive())
+				transaction.rollback();
+		}
+
+	}
+
 }

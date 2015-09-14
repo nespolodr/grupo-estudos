@@ -17,15 +17,14 @@
 		<br />
 
 		<p:commandButton value="Submeter"
-			actionListener="#{marcaMB.salvarMarca()}" update="formMarca" />
+			actionListener="#{marcaMB.editarMarca()}" update="formMarca" />
 
 		<p:messages id="mensagens" closable="true" showDetail="false"
 			showSummary="true" />
 	</h:form>
-
-
-	<h:link outcome="listarMarcas.xhtml"
-		value="Voltar para tela de listagem" />
+	
+	
+	<h:link outcome="listarMarcas.xhtml" value="Voltar para tela de listagem" />
 
 </h:body>
 </html>

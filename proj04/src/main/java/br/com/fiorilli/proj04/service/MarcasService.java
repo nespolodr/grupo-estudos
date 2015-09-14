@@ -33,5 +33,10 @@ public class MarcasService {
 		}
 		
 	}
+
+	public void alterarMarca(MarcaEntity marca) {
+		marcaDao.alterar(marca);
+		
+	}
 	
 }
