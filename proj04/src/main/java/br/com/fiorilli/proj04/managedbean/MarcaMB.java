@@ -71,6 +71,11 @@ public class MarcaMB implements Serializable {
 		
 		return listaMarcas;
 	}
+	
+	public void excluirMarca(MarcaEntity marcaSelecionada)
+	{
+		marcaService.excluirMarca(marcaSelecionada);
+	}
 
 	public void setListaMarcas(List<MarcaEntity> listaMarcas) {
 		this.listaMarcas = listaMarcas;

@@ -35,6 +35,10 @@
 			<p:column headerText="Escolha" >
 				<p:commandButton value="Selecione" actionListener="#{marcaMB.selecionar(itemDaLista)}"></p:commandButton> 
 			</p:column>
+			
+			<p:column headerText="Excluir" >
+				<p:commandButton value="Excluir" actionListener="#{marcaMB.excluirMarca(itemDaLista)}" update="gridForm"></p:commandButton> 
+			</p:column>
 
 		</p:dataTable>
 	</h:form>

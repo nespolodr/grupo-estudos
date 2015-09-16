@@ -60,4 +60,24 @@ public class MarcaDao {
 
 	}
 
+	public void excluir(MarcaEntity marcaSelecionada) {
+		
+		EntityTransaction transaction = manager.getTransaction();
+		try {
+
+			transaction.begin();
+
+
+			manager.remove(manager.merge(marcaSelecionada));
+
+			transaction.commit();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (transaction.isActive())
+				transaction.rollback();
+		}
+		
+	}
+
 }

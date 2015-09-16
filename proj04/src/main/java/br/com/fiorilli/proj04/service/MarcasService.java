@@ -38,5 +38,14 @@ public class MarcasService {
 		marcaDao.alterar(marca);
 		
 	}
+
+	public void excluirMarca(MarcaEntity marcaSelecionada) {
+		
+		if(marcaSelecionada != null)
+		{
+			marcaDao.excluir(marcaSelecionada);
+		}
+		
+	}
 	
 }
