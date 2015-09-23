@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+
+	<h:form id="gridForm">
+	<p:commandButton actionListener="#{cidadeMB.inserir()}" value="INSERIR 2" />
+
+	<h:link outcome="manutencaoCidade.xhtml" value="INSERIR" />
+	<br />
+	<h:link outcome="editarCidade.xhtml" value="EDITAR" />
+	<br />
+		<p:dataTable value="#{cidadeMB.listaCidades}" var="itemDaLista"
+			selection="#{cidadeMB.cidade}" selectionMode="single"
+			rowKey="#{itemDaLista.id}" tableStyle="table-layout: auto !important;">
+
+			<p:ajax event="rowSelect" />
+
+			<p:column headerText="ID" sortBy="#{itemDaLista.id}" width="10%">
+				<h:outputText value="#{itemDaLista.id}" />
+			</p:column>
+
+			<p:column headerText="NOME" sortBy="#{itemDaLista.nome}" width="20%">
+				<h:outputText value="#{itemDaLista.nome}" />
+			</p:column>
+
+			<p:column headerText="ESTADO">
+				<h:outputText value="#{itemDaLista.estado}" />
+			</p:column>
+			
+			<p:column headerText="Escolha" >
+				<p:commandButton value="Selecione" actionListener="#{cidadeMB.selecionar(itemDaLista)}"></p:commandButton> 
+			</p:column>
+			
+			<p:column headerText="Excluir" >
+				<p:commandButton value="Excluir" actionListener="#{cidadeMB.excluirCidade(itemDaLista)}" update="gridForm"></p:commandButton> 
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+
+</h:body>
+</html>
