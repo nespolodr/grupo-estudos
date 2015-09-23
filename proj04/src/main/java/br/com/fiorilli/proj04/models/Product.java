@@ -1,75 +1,107 @@
 package br.com.fiorilli.proj04.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
+import java.io.Serializable;
+import javax.persistence.*;
 import java.math.BigDecimal;
-import br.com.fiorilli.proj04.models.Category;
 
+
+/**
+ * The persistent class for the product database table.
+ * 
+ */
 @Entity
-public class Product
-{
+@NamedQuery(name="Product.findAll", query="SELECT p FROM Product p")
+public class Product implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Integer id;
-   private String name;
-   private String description;
-   private BigDecimal price;
-   
-   @ManyToOne
-   private Category category;
+	@Id
+	private int id;
 
-   public Integer getId()
-   {
-      return this.id;
-   }
+	@Column(name="category_id")
+	private int categoryId;
 
-   public void setId(Integer id)
-   {
-      this.id = id;
-   }
+	private String description;
 
-   public String getName()
-   {
-      return this.name;
-   }
+	@Column(name="marca_id")
+	private int marcaId;
 
-   public void setName(String name)
-   {
-      this.name = name;
-   }
+	private String name;
 
-   public String getDescription()
-   {
-      return this.description;
-   }
+	private BigDecimal price;
 
-   public void setDescription(String description)
-   {
-      this.description = description;
-   }
+	//bi-directional many-to-one association to UnidadeMedida
+	@ManyToOne
+	@JoinColumn(name="unidade_medida_id")
+	private UnidadeMedida unidadeMedida;
+	
+	@ManyToOne
+	private Category category;
 
-   public BigDecimal getPrice()
-   {
-      return this.price;
-   }
+	public Category getCategory() {
+		return category;
+	}
 
-   public void setPrice(BigDecimal price)
-   {
-      this.price = price;
-   }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
-   public Category getCategory()
-   {
-      return this.category;
-   }
+	public Product() {
+	}
 
-   public void setCategory(Category category)
-   {
-      this.category = category;
-   }
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getCategoryId() {
+		return this.categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getMarcaId() {
+		return this.marcaId;
+	}
+
+	public void setMarcaId(int marcaId) {
+		this.marcaId = marcaId;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public BigDecimal getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public UnidadeMedida getUnidadeMedida() {
+		return this.unidadeMedida;
+	}
+
+	public void setUnidadeMedida(UnidadeMedida unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
+
 }
