@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import br.com.fiorilli.estudos.agenda.modelo.Nota;
@@ -51,7 +52,8 @@ public class EntityManagerDisco implements EntityManager {
 			stringzona = novaNota.getId() + ";" + novaNota.getTitulo() + ";"
 					+ novaNota.getDescricao() + ";"
 					+ sdf.format(novaNota.getData()) + "\n";
-			bw.write(stringzona);
+			
+			bw.write(Base64.getEncoder().encodeToString(stringzona.getBytes()));
 
 			return novaNota;
 
@@ -81,6 +83,7 @@ public class EntityManagerDisco implements EntityManager {
 			while (br.ready()) {
 				String line = br.readLine();
 				if (!"".equals(line)) {
+					line = new String(Base64.getDecoder().decode(line.getBytes()));
 					String[] split = line.split(";");
 
 					Nota nota = new Nota();
