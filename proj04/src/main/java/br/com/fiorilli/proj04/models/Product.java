@@ -17,9 +17,6 @@ public class Product implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="category_id")
-	private int categoryId;
-
 	private String description;
 
 	@Column(name="marca_id")
@@ -54,14 +51,6 @@ public class Product implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getCategoryId() {
-		return this.categoryId;
-	}
-
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public String getDescription() {
