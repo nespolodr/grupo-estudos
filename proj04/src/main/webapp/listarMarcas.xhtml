@@ -9,6 +9,8 @@
 	<h:link outcome="manutencaoMarca.xhtml" value="INSERIR NOVA" />
 	<h:link outcome="editarMarca.xhtml" value="EditarMarca" />
 	<br />
+	
+	Olá, #{loginMB.usuario}. Seja bem vindo.
 
 	<h:form id="gridForm">
 		<p:dataTable value="#{marcaMB.listaMarcas}" var="itemDaLista"

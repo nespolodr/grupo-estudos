@@ -28,7 +28,8 @@ public class EntityManagerProducer {
 	@Produces
 	@RequestScoped
 	protected EntityManager createEntityManager() {
-		
+
+//	      return entityManagerFactory.createEntityManager();
 		Properties configuracaoValida;
 		
 		Properties configuracaoExternaProperties = new Properties();
