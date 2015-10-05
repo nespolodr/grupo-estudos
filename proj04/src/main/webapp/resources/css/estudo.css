@@ -1,0 +1,57 @@
+#fiorilli {
+	margin: 100px;
+}
+
+i {
+	color: red;
+}
+
+a {
+	color: red;
+}
+
+a:visited {
+	color: yellow;
+}
+
+a:active {
+	color: white;
+}
+
+div div a:visited {
+	color: green;
+}
+
+button {
+	color: white;
+	width: 80px;
+	border-color: white;
+}
+
+button:hover {
+	color: gray;
+	width: 500px;
+	border-color: gray;
+}
+
+.botaoFoco {
+	color: red;
+	width: 400px;
+	border-color: red;
+}
+
+.botaoFoco:focus {
+	border-color: black;
+	color: black;
+}
+
+.botaoFoco:hover {
+	border-color: green;
+	color: green;
+	width: 80px;
+}
+
+.botao-ok {
+	width: 100px;
+	margin: 20px;
+}

@@ -3,24 +3,51 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-<h:head></h:head>
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- 	<h:outputScript></h:outputScript> -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+	<h:outputStylesheet library="css" name="estudo.css" />
+</h:head>
 <h:body>
 
+	<a href="http://www.google.com.br">Google !</a>
+	<div>
+		<div>
+			<a href="http://www.yahoo.com.br">Yahoo !</a>
+		</div>
+	</div>
+	<h:link outcome="http://www.fiorilli.com.br" styleClass="botaoFoco"
+		value="Fiorilli" />
+
 	<h:form id="formLogin">
+		<i style="color: #0000FF" class="fa fa-home"></i> Home <br />
+		<i class="fa fa-steam"></i>
+		
 
 
 		Usuario: <p:inputText value="#{loginMB.usuario}" />
 		<br />
 		Senha: <p:inputText value="#{loginMB.senha}" />
 		<br />
+		<button>
+			<i class="fa fa-steam"></i>Steam
+		</button>
 
-		<p:commandButton value="Logar"
+		<p:commandButton styleClass="botaoFoco botao-ok" value="Logar"
 			actionListener="#{loginMB.logar()}" update="formLogin" />
 
 		<p:messages id="mensagens" closable="true" showDetail="true"
 			showSummary="true" />
 	</h:form>
 
+	<br />
+	<br />
+
+		
+		abcd<div id="fiorilli">Teste</div>abcd	<br />
+		abcd<div>Teste</div>abcd	<br />
 </h:body>
 </html>
